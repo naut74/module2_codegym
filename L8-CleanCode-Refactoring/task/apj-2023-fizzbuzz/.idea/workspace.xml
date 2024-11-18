@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d28d0410-b351-42c9-8f91-05bed12f6e74" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../L4-OOP/task" beforeDir="false" afterPath="$PROJECT_DIR$/../../../L4-OOP/task" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../L5-AcessModifier/task/access-modifier_static-method_static-property/src/ChuNhat.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../L5-AcessModifier/task/access-modifier_static-method_static-property/src/ChuNhat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../L6-/task/untitled/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../L6-/task/untitled/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../L6-/task/untitled/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../L6-/task/untitled/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../L6-/task/untitled/inheritance.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../L6-/task/untitled/src/superclassesAndSubclasses/Circle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../L6-/task/untitled/src/superclassesAndSubclasses/Geometric.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../L6-/task/untitled/src/superclassesAndSubclasses/Rectangle.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "naut74"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/naut74/module2_codegym.git",
+    "accountId": "6c31f286-ee7d-454c-a6a9-5a197d4656d1"
+  }
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 3
+}]]></component>
+  <component name="ProjectId" id="2p0WAQgVS5X5tK844be4chc74wv" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.FizzBuzzTest.executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/Codegym1/module2/sourses/L8-CleanCode-Refactoring/task/fizzbuzz"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="fizzbuzz" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="fizzbuzz" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d28d0410-b351-42c9-8f91-05bed12f6e74" name="Changes" comment="" />
+      <created>1731903330485</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1731903330485</updated>
+    </task>
+    <servers />
+  </component>
+</project>
