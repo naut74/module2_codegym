@@ -12,9 +12,9 @@ public class ResizeableTest {
         System.out.println(rectangle);
         System.out.println(square);
 
-        circle.resize(50); // Tăng bán kính lên 50%
-        rectangle.resize(25); // Tăng kích thước lên 25%
-        square.resize(10); // Tăng cạnh lên 10%
+        circle.resize(50);
+        rectangle.resize(25);
+        square.resize(10);
 
         System.out.println("\nAfter resizing:");
         System.out.println(circle);
