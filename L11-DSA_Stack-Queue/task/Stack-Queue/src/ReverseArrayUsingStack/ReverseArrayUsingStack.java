@@ -26,8 +26,7 @@ public class ReverseArrayUsingStack<T> {
         StringBuilder reversedString = new StringBuilder();
 
         while (!stack.isEmpty()) {
-            String word = stack.pop();
-            reversedString.append(word);
+            reversedString.append(stack.pop());
 
             if (!stack.isEmpty()) {
                 reversedString.append(" ");
