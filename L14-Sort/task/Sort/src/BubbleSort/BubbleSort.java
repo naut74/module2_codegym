@@ -6,7 +6,7 @@ public class BubbleSort {
     public static void bubbleSort(int[] list) {
         boolean needNextPass = true;
 
-        for (int k = 0; k < list.length && needNextPass; k++) {
+        for (int k = 1; k < list.length && needNextPass; k++) {
             needNextPass = false;
             for (int i = 0; i < list.length - k; i++) {
                 if (list[i] > list[i + 1]) {
@@ -22,8 +22,8 @@ public class BubbleSort {
 
     public static void main(String[] args) {
         bubbleSort(list);
-        for (int i = 0; i < list.length; i++) {
-            System.out.println(list[i] + " ");
+        for (int j : list) {
+            System.out.print(j + " ");
         }
     }
 }
