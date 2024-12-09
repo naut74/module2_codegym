@@ -4,7 +4,7 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public class TaxiThread implements Runnable{
-    private TaxiPool taxiPool;
+    private final TaxiPool taxiPool;
 
     public TaxiThread(TaxiPool taxiPool) {
         this.taxiPool = taxiPool;
