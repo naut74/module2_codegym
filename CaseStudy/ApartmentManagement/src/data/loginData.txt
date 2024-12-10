@@ -1,0 +1,8 @@
+admin,admin123,manager
+admin2,admin123,manager
+user1,apartment101,resident
+user2,apartment102,resident
+user3,apartment103,resident
+maintenance1,staff01,maintenanceStaff
+maintenance2,staff02,maintenanceStaff
+

@@ -1,0 +1,38 @@
+entities
+│
+├── Resident
+├── Apartment
+├── Building
+├── Manager
+└── MaintenanceStaff
+
+management
+│
+├── ApartmentManagement
+├── Authentication
+├── BuildingManagement
+├── ResidentManagement
+└── MaintenanceStaffManagement
+
+menu
+│
+├── DisplayMaintenanceMenu
+├── DisplayManagerMenu
+├── LoginMenu
+├── PostLoginMenu
+
+
+utility
+│
+├── DataFormatter
+├── FileManagement
+├── Validation
+
+ApplicationMenu
+
+
+/**Design Pattern **/
+-- Singleton: Authentication;
+-- Factory Method: Resident, Manager, MaintenanceStaff;
+-- Stratery Pattern: RoleMenu;
+-- Observer Pattern: Building to MainentanceStaff;
