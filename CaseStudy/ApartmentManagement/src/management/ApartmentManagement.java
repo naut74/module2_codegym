@@ -59,7 +59,7 @@ public class ApartmentManagement {
         Apartment newApartment = new Apartment(apartmentId, nameBuilding, floor, status);
         apartments.add(newApartment);
         saveApartmentsToFile(filePath);
-        System.out.println("Apartment added successfully.");
+        System.out.println("Apartment added successfully.\n");
     }
 
     public void updateApartmentStatus(String apartmentId, boolean newStatus, String filePath) {

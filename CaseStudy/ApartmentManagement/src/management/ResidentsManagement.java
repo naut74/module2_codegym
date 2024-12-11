@@ -8,59 +8,67 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ResidentsManagement {
-    private static final String ROLE_RESIDENT = "Resident";
+    public static final String SRC_DATA_USER_INFO = "src/data/test.txt";
     private List<Resident> residents = new ArrayList<>();
 
-    public void loadResidentsFromFile(String filePath) {
-        List<String> lines = FileManagement.readFile(filePath);
-
-        for (String line : lines) {
-            String[] data = line.split(",");
-            if (data.length == 4) {
-                String residentName = data[0];
-                String residentApartmentId = data[1];
-                String rentalTime = data[2];
-                String username = residentName;
-                Resident resident = new Resident(username, ROLE_RESIDENT, residentApartmentId, rentalTime);
-                residents.add(resident);
-            }
-        }
-    }
-
     public List<Resident> getResidents() {
-        List<String> lines = FileManagement.readFile("src/data/apartmentInfoData.txt");
+        List<String> lines = FileManagement.readFile(SRC_DATA_USER_INFO);
         for (String line : lines) {
             String[] parts = line.split(",");
-            if (parts.length == 4) {
-                String residentName = parts[0];
-                String residentApartmentId = parts[1];
-                String rentalTime = parts[2];
-                String username = residentName;
-                Resident resident = new Resident(username, ROLE_RESIDENT, residentApartmentId, rentalTime);
+            if (parts.length == 6) {
+                String username = parts[0];
+                String password = parts[1];
+                String role = parts[2];
+                String residentName = parts[3];
+                String apartmentId = parts[4];
+                String rentalTime = parts[5];
+                Resident resident = new Resident(username, password, role, residentName, apartmentId, rentalTime);
                 residents.add(resident);
             }
         }
         return residents;
     }
 
-    public void saveApartmentsToFile(String filePathApartmentInfo) {
+    public void saveResidentsToFile(String fileResidentInfo) {
         List<String> data = new ArrayList<>();
 
         for (Resident resident : residents) {
-            String line = resident.getUsername() + "," + resident.getApartmentId() + ","
+            String line = resident.getUsername() + ","
+                    + resident.getPassword() + ","
+                    + resident.getRole() + ","
+                    + resident.getResidentName() + ","
+                    + resident.getApartmentId() + ","
                     + resident.getRentalTime();
             data.add(line);
         }
 
-        FileManagement.writeFile(filePathApartmentInfo, data, false);
+        FileManagement.writeFile(fileResidentInfo, data, true);
     }
 
-    public void addResident(String residentName, String residentApartment,String rentalTime) {
-
+    public void addResident(String username, String password, String role, String residentName, String residentApartment, String rentalTime) {
+        Resident newResident = new Resident(username, password, role, residentName, residentApartment, rentalTime);
+        residents.add(newResident);
+        saveResidentsToFile(SRC_DATA_USER_INFO);
+        System.out.println("Resident added successfully.");
     }
 
-    public void removeResident() {
+    public void removeResident(String apartmentId, String filePathDataUser) {
+        residents = getResidents();
+        Resident targetResident = null;
+        for (Resident resident : residents) {
+            if (resident.getApartmentId().equals(apartmentId)) {
+                targetResident = resident;
+                break;
+            }
+        }
 
+        if (targetResident != null) {
+            residents.remove(targetResident);
+            saveResidentsToFile(filePathDataUser);
+            System.out.println("Resident with apartmentID " + apartmentId + " removed successfully");
+        } else {
+            System.out.println("Apartment with apartmentID " + apartmentId + " not found.");
+        }
     }
 
     public void viewResidentsList() {

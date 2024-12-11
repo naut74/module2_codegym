@@ -9,11 +9,11 @@ public class UserFactory {
     public static User createUser(String username, String password, String role, String additionalInfo) {
         switch (role.toLowerCase()) {
             case "resident":
-                return new Resident(username, password, role, additionalInfo); // additionalInfo: Apartment ID
+                return new Resident(username, password, role, additionalInfo);
             case "manager":
-                return new Manager(username, password, role, additionalInfo); // additionalInfo: Contact Info
+                return new Manager(username, password, role, additionalInfo);
             case "maintenancestaff":
-                return new MaintenanceStaff(username, password, role, additionalInfo); // additionalInfo: Skill Set
+                return new MaintenanceStaff(username, password, role, additionalInfo);
             default:
                 throw new IllegalArgumentException("Invalid role: " + role);
         }

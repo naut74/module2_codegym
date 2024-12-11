@@ -30,9 +30,13 @@ public class ResidentManagementMenu {
                         addResidentInfo(scanner, residentsManagement);
                         break;
                     case 2:
-                        residentsManagement.removeResident();
+                        System.out.println("Removing a resident...");
+                        System.out.println("Enter the apartment ID of the resident you want to remove: ");
+                        String apartmentId = scanner.nextLine();
+                        residentsManagement.removeResident(apartmentId, ResidentsManagement.SRC_DATA_USER_INFO);
                         break;
                     case 3:
+                        System.out.println("Viewing residents list...");
                         residentsManagement.viewResidentsList();
                         break;
                     case 4:
@@ -49,13 +53,18 @@ public class ResidentManagementMenu {
     }
 
     private static void addResidentInfo(Scanner scanner, ResidentsManagement residentsManagement) {
-        String role = "Resident";
         System.out.print("Resident name: ");
         String residentName = scanner.nextLine();
-        System.out.println("Resident Apartment ID: ");
+        System.out.print("Resident Apartment ID: ");
         String residentApartmentId = scanner.nextLine();
-        System.out.println("Rental Time: ");
+        System.out.print("Rental Time (month): ");
         String rentalTime = scanner.nextLine();
-        residentsManagement.addResident(residentName, residentApartmentId, rentalTime);
+        System.out.println("Create Account for " + residentName);
+        System.out.print("Enter username: ");
+        String username = scanner.nextLine();
+        System.out.print("Enter password: ");
+        String password = scanner.nextLine();
+        String role = "Resident";
+        residentsManagement.addResident(username, password, role, residentName, residentApartmentId, rentalTime);
     }
 }
