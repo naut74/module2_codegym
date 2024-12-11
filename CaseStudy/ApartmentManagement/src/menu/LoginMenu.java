@@ -19,12 +19,11 @@ public class LoginMenu {
         String password = scanner.nextLine();
         System.out.println("---------------------------------");
 
-        // Thực hiện đăng nhập
         User user = auth.login(username, password);
         if (user != null) {
             System.out.println("Login successful! Welcome, " + user.getUsername());
             System.out.println("Role: " + user.getRole());
-            return user; // Trả về đối tượng User
+            return user;
         } else {
             System.out.println("Invalid username or password. Please try again.");
             return null;

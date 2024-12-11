@@ -3,6 +3,8 @@ import management.Authentication;
 import menu.LoginMenu;
 import menu.PostLoginMenu;
 
+import static utility.GetValidValue.getValidInteger;
+
 public class ApplicationMenu {
     public static void main(String[] args) {
         boolean exit = false;
@@ -12,7 +14,7 @@ public class ApplicationMenu {
             System.out.println("1. Login");
             System.out.println("2. Exit");
             System.out.println("===============================================");
-            System.out.print("Choose an option: ");
+//            System.out.print("Choose an option: ");
 
             int choice = readChoice();
             switch (choice) {
@@ -42,7 +44,7 @@ public class ApplicationMenu {
     private static int readChoice() {
         try {
             java.util.Scanner scanner = new java.util.Scanner(System.in);
-            return scanner.nextInt();
+            return getValidInteger(scanner, "Enter your choice: ");
         } catch (Exception e) {
             System.out.println("Invalid input! Please enter a number.");
             return -1;

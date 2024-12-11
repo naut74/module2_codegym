@@ -4,7 +4,6 @@ import entities.User;
 
 public class PostLoginMenu {
     public void displayMenu(User user) {
-        System.out.println("\n===== MENU =====");
         switch (user.getRole().toLowerCase()) {
             case "manager":
                 ManagerMenu managerMenu = new ManagerMenu();

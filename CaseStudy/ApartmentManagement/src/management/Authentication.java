@@ -46,7 +46,6 @@ public class Authentication {
         }
     }
 
-    // Thực hiện đăng nhập
     public User login(String username, String password) {
         if (loginData.containsKey(username)) {
             String[] data = loginData.get(username);
@@ -54,6 +53,6 @@ public class Authentication {
                 return UserFactory.createUser(username, password, data[1], data[2]);
             }
         }
-        return null; // Đăng nhập thất bại
+        return null;
     }
 }
