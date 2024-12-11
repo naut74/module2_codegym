@@ -18,5 +18,3 @@ apt208,Sunset,1,false
 apt209,Sunset,2,false
 apt301,Moon,2,false
 apt302,Moon,1,true
-apt304,Moon,1,false
-apt305,Moon,1,true

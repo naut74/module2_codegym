@@ -1,18 +1,6 @@
 admin,admin123,manager
 admin2,admin123,manager
 user1,apartment101,resident,John Smith,apt101,6
-user2,apartment102,resident,Emily Brown,apt102,12
 user3,apartment103,resident,Michael Johnson,apt103,8
-maintenance1,staff01,maintenanceStaff
-maintenance2,staff02,maintenanceStaff
-user4,apartment401,Resident,Johnathan,apt401,3
-user5,apartment402,Resident,Johnathan,apt402,3user1,apartment101,resident,John Smith,apt101,6
-user2,apartment102,resident,Emily Brown,apt102,12
-user3,apartment103,resident,Michael Johnson,apt103,8
-user4,apartment401,Resident,Johnathan,apt401,3
-user1,apartment101,resident,John Smith,apt101,6
-user2,apartment102,resident,Emily Brown,apt102,12
-user3,apartment103,resident,Michael Johnson,apt103,8
-user2,apartment102,resident,Emily Brown,apt102,12
-user3,apartment103,resident,Michael Johnson,apt103,8
-user4,apartment401,Resident,Johnathan,apt401,3
+maintenance1,staff01,maintenanceStaff,Kevin Parker,staff1,false
+maintenanceStaff2,staff_2,maintenanceStaff,Fishing Fish,staff2,true

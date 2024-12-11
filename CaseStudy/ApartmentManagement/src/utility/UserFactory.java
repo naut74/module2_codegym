@@ -12,7 +12,7 @@ public class UserFactory {
                 return new Resident(username, password, role, additionalInfo);
             case "manager":
                 return new Manager(username, password, role, additionalInfo);
-            case "maintenancestaff":
+            case "maintenanceStaff":
                 return new MaintenanceStaff(username, password, role, additionalInfo);
             default:
                 throw new IllegalArgumentException("Invalid role: " + role);

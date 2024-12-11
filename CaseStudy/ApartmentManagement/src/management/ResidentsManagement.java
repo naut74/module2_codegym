@@ -15,7 +15,7 @@ public class ResidentsManagement {
         List<String> lines = FileManagement.readFile(SRC_DATA_USER_INFO);
         for (String line : lines) {
             String[] parts = line.split(",");
-            if (parts.length == 6) {
+            if (parts.length == 6 && parts[2].equals("resident")) {
                 String username = parts[0];
                 String password = parts[1];
                 String role = parts[2];
@@ -29,7 +29,7 @@ public class ResidentsManagement {
         return residents;
     }
 
-    public void saveResidentsToFile(String fileResidentInfo) {
+    public void saveResidentsToFile(String fileResidentInfo, boolean statusAppend) {
         List<String> data = new ArrayList<>();
 
         for (Resident resident : residents) {
@@ -42,37 +42,79 @@ public class ResidentsManagement {
             data.add(line);
         }
 
-        FileManagement.writeFile(fileResidentInfo, data, true);
+        FileManagement.writeFile(fileResidentInfo, data, statusAppend);
     }
 
     public void addResident(String username, String password, String role, String residentName, String residentApartment, String rentalTime) {
         Resident newResident = new Resident(username, password, role, residentName, residentApartment, rentalTime);
         residents.add(newResident);
-        saveResidentsToFile(SRC_DATA_USER_INFO);
+        saveResidentsToFile(SRC_DATA_USER_INFO, true);
         System.out.println("Resident added successfully.");
     }
 
+//    public void removeResident(String apartmentId, String filePathDataUser) {
+//        residents = getResidents();
+//        Resident targetResident = null;
+//        for (Resident resident : residents) {
+//            if (resident.getApartmentId().equals(apartmentId)) {
+//                targetResident = resident;
+//                break;
+//            }
+//        }
+//
+//        if (targetResident != null) {
+//            residents.remove(targetResident);
+//            saveResidentsToFile(filePathDataUser, false);
+//            System.out.println("Resident with apartmentID " + apartmentId + " removed successfully");
+//        } else {
+//            System.out.println("Apartment with apartmentID " + apartmentId + " not found.");
+//        }
+//    }
+
     public void removeResident(String apartmentId, String filePathDataUser) {
-        residents = getResidents();
-        Resident targetResident = null;
-        for (Resident resident : residents) {
-            if (resident.getApartmentId().equals(apartmentId)) {
-                targetResident = resident;
-                break;
+        List<String> lines = FileManagement.readFile(filePathDataUser); // Đọc toàn bộ dữ liệu từ file
+        List<String> updatedLines = new ArrayList<>();
+
+        boolean residentRemoved = false;
+
+        for (String line : lines) {
+            String[] parts = line.split(",");
+            if (parts.length >= 5 && parts[2].equals("resident")) {
+                if (!parts[4].equals(apartmentId)) {
+                    updatedLines.add(line);
+                } else {
+                    residentRemoved = true;
+                }
+            } else {
+                updatedLines.add(line);
             }
         }
 
-        if (targetResident != null) {
-            residents.remove(targetResident);
-            saveResidentsToFile(filePathDataUser);
-            System.out.println("Resident with apartmentID " + apartmentId + " removed successfully");
+        FileManagement.writeFile(filePathDataUser, updatedLines, false);
+
+        if (residentRemoved) {
+            System.out.println("Resident with apartmentID " + apartmentId + " removed successfully.");
         } else {
-            System.out.println("Apartment with apartmentID " + apartmentId + " not found.");
+            System.out.println("Resident with apartmentID " + apartmentId + " not found or not a resident.");
         }
     }
 
-    public void viewResidentsList() {
 
+    public void viewResidentsList() {
+        residents = getResidents();
+        System.out.println("===== RESIDENT LIST =====");
+        if (residents.isEmpty()) {
+            System.out.println("No residents found.");
+        } else {
+            for (Resident resident : residents) {
+                System.out.printf("Apartment ID: %s, Resident Name: %s, Rental Time: %s%n",
+                        resident.getApartmentId(),
+                        resident.getResidentName(),
+                        resident.getRentalTime()
+                );
+            }
+            System.out.println("========================");
+        }
     }
 
     public void setPersonalInfo() {

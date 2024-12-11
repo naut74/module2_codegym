@@ -3,5 +3,5 @@ admin2,admin123,manager
 user1,apartment101,resident,John Smith,apt101,6
 user2,apartment102,resident,Emily Brown,apt102,12
 user3,apartment103,resident,Michael Johnson,apt103,8
-maintenance1,staff01,maintenanceStaff
-maintenance2,staff02,maintenanceStaff
+maintenance1,staff01,maintenanceStaff,Kevin Parker,staff1,false
+maintenance2,staff02,maintenanceStaff,John Doe,staff2,true

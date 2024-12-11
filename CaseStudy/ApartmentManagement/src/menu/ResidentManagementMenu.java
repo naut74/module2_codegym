@@ -12,9 +12,8 @@ public class ResidentManagementMenu {
         Scanner scanner = new Scanner(System.in);
         boolean exit = false;
 
-
         while (!exit) {
-            System.out.println("======RESIDENT MANAGEMENT MENU======");
+            System.out.println("\n======RESIDENT MANAGEMENT MENU======");
             System.out.println("1. Add Resident");
             System.out.println("2. Remove Residents");
             System.out.println("3. Resident List");
@@ -31,9 +30,7 @@ public class ResidentManagementMenu {
                         break;
                     case 2:
                         System.out.println("Removing a resident...");
-                        System.out.println("Enter the apartment ID of the resident you want to remove: ");
-                        String apartmentId = scanner.nextLine();
-                        residentsManagement.removeResident(apartmentId, ResidentsManagement.SRC_DATA_USER_INFO);
+                        removeResidentInfo(scanner, residentsManagement);
                         break;
                     case 3:
                         System.out.println("Viewing residents list...");
@@ -47,9 +44,15 @@ public class ResidentManagementMenu {
                         System.out.println("Invalid choice. Please try again.");
                 }
             } catch (Exception e) {
-                System.out.println("Invalid input! Please enter a number.");
+                    System.out.println("Invalid input! Please enter a number.");
             }
         }
+    }
+
+    private static void removeResidentInfo(Scanner scanner, ResidentsManagement residentsManagement) {
+        System.out.println("Enter the apartment ID of the resident you want to remove: ");
+        String apartmentId = scanner.nextLine();
+        residentsManagement.removeResident(apartmentId, ResidentsManagement.SRC_DATA_USER_INFO);
     }
 
     private static void addResidentInfo(Scanner scanner, ResidentsManagement residentsManagement) {

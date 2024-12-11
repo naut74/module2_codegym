@@ -8,27 +8,28 @@ import java.util.List;
 
 public class ApartmentManagement {
 
+    public static final String SRC_DATA_APARTMENT_INFO = "src/data/apartmentInfoData.txt";
     private List<Apartment> apartments = new ArrayList<>();
 
-    public void loadApartmentsFromFile(String filePath) {
-        List<String> lines = FileManagement.readFile(filePath);
-
-        for (String line : lines) {
-            String[] data = line.split(",");
-            if (data.length == 4) {
-                String apartmentId = data[0];
-                String nameBuilding = data[1];
-                int floor = Integer.parseInt(data[2]);
-                boolean status = Boolean.parseBoolean(data[3]);
-
-                Apartment apartment = new Apartment(apartmentId, nameBuilding, floor, status);
-                apartments.add(apartment);
-            }
-        }
-    }
+//    public void loadApartmentsFromFile(String filePath) {
+//        List<String> lines = FileManagement.readFile(filePath);
+//
+//        for (String line : lines) {
+//            String[] data = line.split(",");
+//            if (data.length == 4) {
+//                String apartmentId = data[0];
+//                String nameBuilding = data[1];
+//                int floor = Integer.parseInt(data[2]);
+//                boolean status = Boolean.parseBoolean(data[3]);
+//
+//                Apartment apartment = new Apartment(apartmentId, nameBuilding, floor, status);
+//                apartments.add(apartment);
+//            }
+//        }
+//    }
 
     public List<Apartment> getApartments() {
-        List<String> lines = FileManagement.readFile("src/data/apartmentInfoData.txt");
+        List<String> lines = FileManagement.readFile(SRC_DATA_APARTMENT_INFO);
         for (String line : lines) {
             String[] parts = line.split(",");
             if (parts.length == 4) {
@@ -43,7 +44,7 @@ public class ApartmentManagement {
         return apartments;
     }
 
-    public void saveApartmentsToFile(String filePathApartmentInfo) {
+    public void saveApartmentsToFile(String filePathApartmentInfo,boolean statusAppend) {
         List<String> data = new ArrayList<>();
 
         for (Apartment apartment : apartments) {
@@ -58,7 +59,7 @@ public class ApartmentManagement {
     public void addApartment(String apartmentId, String nameBuilding, int floor, boolean status, String filePath) {
         Apartment newApartment = new Apartment(apartmentId, nameBuilding, floor, status);
         apartments.add(newApartment);
-        saveApartmentsToFile(filePath);
+        saveApartmentsToFile(filePath, true);
         System.out.println("Apartment added successfully.\n");
     }
 
@@ -67,7 +68,7 @@ public class ApartmentManagement {
         for (Apartment apartment : apartments) {
             if (apartment.getApartmentId().equals(apartmentId)) {
                 apartment.setStatus(newStatus);
-                saveApartmentsToFile(filePath);
+                saveApartmentsToFile(filePath, false);
                 System.out.println("Apartment status updated successfully.");
                 return;
             }
@@ -89,7 +90,7 @@ public class ApartmentManagement {
 
         if (targetApartment != null) {
             apartments.remove(targetApartment);
-            saveApartmentsToFile(filePath);
+            saveApartmentsToFile(filePath, false);
             System.out.println("Apartment with ID " + apartmentId + " removed successfully.");
         } else {
             System.out.println("Apartment with ID " + apartmentId + " not found.");
