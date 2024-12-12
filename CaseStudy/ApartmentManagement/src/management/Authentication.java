@@ -1,5 +1,8 @@
 package management;
 
+import entities.MaintenanceStaff;
+import entities.Manager;
+import entities.Resident;
 import entities.User;
 import utility.FileManagement;
 import utility.UserFactory;
@@ -24,24 +27,35 @@ public class Authentication {
         return instance;
     }
 
-    // Đọc dữ liệu từ file và lưu vào loginData
     private void loadLoginData() {
         String filePath = "src/data/loginData.txt";
         List<String> lines = FileManagement.readFile(filePath);
 
         for (String line : lines) {
             String[] parts = line.split(",");
-            if (parts.length == 3) {
+            if (parts.length == 3 && parts[2].equals("manager")) {
                 String username = parts[0].trim();
                 String password = parts[1].trim();
                 String role = parts[2].trim();
-                loginData.put(username, new String[]{password, role, ""}); // additionalInfo có thể rỗng
-            } else if (parts.length == 4) {
+                loginData.put(username, new String[]{password, role, ""});
+            } else if (parts.length == 6 && parts[2].equals("resident")) {
                 String username = parts[0].trim();
                 String password = parts[1].trim();
                 String role = parts[2].trim();
-                String additionalInfo = parts[3].trim();
-                loginData.put(username, new String[]{password, role, additionalInfo});
+                String residentName = parts[3].trim();
+                String apartmentId = parts[4].trim();
+                String rentalTime = parts[5].trim();
+                String additionalInfo = residentName + "," + apartmentId + "," + rentalTime;
+                loginData.put(username, new String[]{password, role, residentName, apartmentId, rentalTime,additionalInfo});
+            } else if (parts.length == 6 && parts[2].equals("maintenanceStaff")) {
+                String username = parts[0].trim();
+                String password = parts[1].trim();
+                String role = parts[2].trim();
+                String staffName = parts[3].trim();
+                String staffId = parts[4].trim();
+                String staffStatus = parts[5].trim();
+                String additionalInfo = staffName + "," + staffId + "," + staffStatus;
+                loginData.put(username, new String[]{password, role, staffName, staffId, staffStatus});
             }
         }
     }
@@ -49,8 +63,13 @@ public class Authentication {
     public User login(String username, String password) {
         if (loginData.containsKey(username)) {
             String[] data = loginData.get(username);
-            if (data[0].equals(password)) {
-                return UserFactory.createUser(username, password, data[1], data[2]);
+            if (data[0].equals(password) && data[1].equals("manager")) {
+                return new Manager(username, password, data[1], data[2]);
+            } else if (data[0].equals(password) && data[1].equals("resident")) {
+                return new Resident(username, password, data[1], data[2], data[3], data[4]);
+            } else if (data[0].equals(password) && data[1].equals("maintenanceStaff")) {
+                boolean value = Boolean.parseBoolean(data[4]);
+                return new MaintenanceStaff(username, password, data[1], data[2], data[3], value);
             }
         }
         return null;

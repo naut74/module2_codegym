@@ -20,7 +20,7 @@ public class ApplicationMenu {
             switch (choice) {
                 case 1:
                     Authentication auth = Authentication.getInstance();
-                    LoginMenu loginMenu = new LoginMenu();
+                    LoginMenu loginMenu = LoginMenu.getInstance();
 
                     User user = loginMenu.login();
                     if (user != null) {
