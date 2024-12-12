@@ -8,7 +8,7 @@ import static utility.GetValidValue.getValidBoolean;
 import static utility.GetValidValue.getValidInteger;
 
 public class ApartmentsManagementMenu {
-    private static final String FILE_PATH_APARTMENT_INFO = "src/data/ApartmentInfoData.txt";
+    private static final String FILE_PATH_APARTMENT_INFO = "src/data/apartmentInfoData.txt";
 
     public void displayMenu() {
         Scanner scanner = new Scanner(System.in);

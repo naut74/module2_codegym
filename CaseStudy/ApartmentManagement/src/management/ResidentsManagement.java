@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ResidentsManagement {
-    public static final String SRC_DATA_USER_INFO = "src/data/test.txt";
+    public static final String SRC_DATA_USER_INFO = "src/data/loginData.txt";
     private List<Resident> residents = new ArrayList<>();
 
     public List<Resident> getResidents() {
@@ -52,27 +52,8 @@ public class ResidentsManagement {
         System.out.println("Resident added successfully.");
     }
 
-//    public void removeResident(String apartmentId, String filePathDataUser) {
-//        residents = getResidents();
-//        Resident targetResident = null;
-//        for (Resident resident : residents) {
-//            if (resident.getApartmentId().equals(apartmentId)) {
-//                targetResident = resident;
-//                break;
-//            }
-//        }
-//
-//        if (targetResident != null) {
-//            residents.remove(targetResident);
-//            saveResidentsToFile(filePathDataUser, false);
-//            System.out.println("Resident with apartmentID " + apartmentId + " removed successfully");
-//        } else {
-//            System.out.println("Apartment with apartmentID " + apartmentId + " not found.");
-//        }
-//    }
-
     public void removeResident(String apartmentId, String filePathDataUser) {
-        List<String> lines = FileManagement.readFile(filePathDataUser); // Đọc toàn bộ dữ liệu từ file
+        List<String> lines = FileManagement.readFile(filePathDataUser);
         List<String> updatedLines = new ArrayList<>();
 
         boolean residentRemoved = false;

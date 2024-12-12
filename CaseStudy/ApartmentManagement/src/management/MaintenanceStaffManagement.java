@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MaintenanceStaffManagement {
-    public static final String SRC_DATA_USER_INFO = "src/data/test.txt";
+    public static final String SRC_DATA_USER_INFO = "src/data/loginData.txt";
     private List<MaintenanceStaff> staffs = new ArrayList<>();
 
     public List<MaintenanceStaff> getStaffs() {
